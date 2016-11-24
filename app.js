@@ -12,6 +12,7 @@ var flash = require('connect-flash');
 var validator = require('express-validator');
 
 var routes = require('./routes/index');
+var userRoutes = require('./routes/user');
 
 var app = express();
 
@@ -40,6 +41,7 @@ app.use(function(req, res, next) {
     next();
 });
 
+app.use('/user', userRoutes);
 app.use('/', routes);
 
 // catch 404 and forward to error handler
