@@ -31,4 +31,16 @@ router.get('/add-to-cart/:id', function(req, res, next) {
   });
 });
 
+router.get('/shopping-cart', function(req, res, next) {
+  var params = {};
+
+  if (req.session.cart) {
+    var cart = new Cart(req.session.cart);
+    params.products = cart.generateArray();
+    params.totalPrice = cart.totalPrice;
+  }
+
+  res.render('shop/shopping-cart', params);
+})
+
 module.exports = router;

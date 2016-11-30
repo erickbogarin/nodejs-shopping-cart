@@ -22,7 +22,7 @@ Cart.prototype.generateArray = function() {
   var arr = [];
 
   for (var id in this.items) {
-    arr.push(this.items[i]);
+    arr.push(this.items[id]);
   }
 
   return arr;
