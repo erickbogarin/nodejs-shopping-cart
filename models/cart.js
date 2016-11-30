@@ -1,10 +1,10 @@
- function Card(oldCard) {
-    this.items = oldCard.items || {};
-    this.totalQty = oldCard.totalQty || 0;
-    this.totalPrice = oldCard.totalPrice || 0;
+ function Cart(oldCart) {
+    this.items = oldCart.items || {};
+    this.totalQty = oldCart.totalQty || 0;
+    this.totalPrice = oldCart.totalPrice || 0;
 }
 
-Card.prototype.add = function(item, id) {
+Cart.prototype.add = function(item, id) {
   var storedItem = this.items[id];
 
   // in case an item has not yet been added to the cart
@@ -18,14 +18,14 @@ Card.prototype.add = function(item, id) {
   this.totalPrice += storedItem.item.price;
 }
 
-Card.prototype.generateArray = function() {
+Cart.prototype.generateArray = function() {
   var arr = [];
 
   for (var id in this.items) {
     arr.push(this.items[i]);
   }
-  
+
   return arr;
 }
 
-module.exports = Card;
+module.exports = Cart;
